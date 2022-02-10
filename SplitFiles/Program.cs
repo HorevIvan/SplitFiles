@@ -168,7 +168,11 @@ string? GetArgumentValue(string name)
 /// </summary>
 IEnumerable<string> GetFiles(string directory)
 {
-    return Directory.GetFiles(directory, "*", SearchOption.TopDirectoryOnly);
+    var files = Directory.GetFiles(directory, "*", SearchOption.TopDirectoryOnly);
+
+    Console.WriteLine($"Finded files: {files.Count()}");
+
+    return files;
 }
 
 /* ==== CLASSES ==== */
