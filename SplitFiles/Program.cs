@@ -151,11 +151,16 @@ int GetArgumentInt32(string name, int defaultValue)
     return defaultValue;
 }
 
-string? GetArgumentValue(string name)
+/// <summary> Get variable from command line for key with prefix -
+///           For example, program runned with parameters: -d /root/dir01
+///           then method returns: /root/dir01
+///           for argument name: d
+/// </summary>
+string? GetArgumentValue(string argumentName)
 {
     var arguments = Environment.GetCommandLineArgs();
 
-    var key = $"-{name}";
+    var key = $"-{argumentName}";
 
     var index = Array.IndexOf(arguments, key);
 
@@ -177,8 +182,7 @@ IEnumerable<string> GetFiles(string directory)
 
 /* ==== CLASSES ==== */
 
-/// <summary>
-/// Helper methods
+/// <summary> Helper methods
 /// </summary>
 public static class Common
 {
